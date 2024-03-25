@@ -1,94 +1,15 @@
-// Cyborg 5.3.3
+// Flatly 5.3.3
 // Bootswatch
 
 
 // Variables
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" !default;
+$web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" !default;
 @if $web-font-path {
   @import url("#{$web-font-path}");
 }
 
-// Navbar
-
-.navbar {
-  &.bg-primary {
-    border: 1px solid $gray-700;
-  }
-
-  &.bg-dark {
-    background-color: $body-bg !important;
-    border: 1px solid $gray-700;
-  }
-
-  &.bg-light {
-    background-color: $gray-500 !important;
-  }
-
-  &.fixed-top {
-    border-width: 0 0 1px;
-  }
-
-  &.fixed-bottom {
-    border-width: 1px 0 0;
-  }
-}
-
-// Buttons
-
-.btn {
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
-      } @else {
-        background-color: $value;
-      }
-    }
-  }
-}
-
-// Forms
-
-legend {
-  color: $white;
-}
-
-.form-control {
-  &:disabled,
-  &[readonly] {
-    border-color: transparent;
-  }
-}
-
 // Navs
-
-.nav-tabs,
-.nav-pills {
-  .nav-link {
-    color: $white;
-
-    &:hover {
-      background-color: $gray-700;
-    }
-
-    &.disabled,
-    &.disabled:hover {
-      color: $nav-link-disabled-color;
-      background-color: transparent;
-    }
-
-    &.active {
-      background-color: $primary;
-    }
-  }
-}
-
-.breadcrumb {
-  a {
-    color: $white;
-  }
-}
 
 .pagination {
   a:hover {
@@ -97,6 +18,12 @@ legend {
 }
 
 // Indicators
+
+.badge {
+  &.bg-light {
+    color: $dark;
+  }
+}
 
 .alert {
   color: $white;
@@ -111,36 +38,28 @@ legend {
   @each $color, $value in $theme-colors {
     &-#{$color} {
       @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+        background: $value linear-gradient(180deg, mix($body-bg, $value, 15%), $value) repeat-x;
       } @else {
         background-color: $value;
       }
     }
   }
-}
 
-.badge {
-  &.bg-dark {
-    color: $gray-900;
+  &-light {
+    &,
+    a,
+    .alert-link {
+      color: $body-color;
+    }
   }
-}
-
-.tooltip {
-  --bs-tooltip-bg: var(--bs-tertiary-bg);
-  --bs-tooltip-color: var(--bs-emphasis-color);
 }
 
 // Containers
 
-.list-group-item-action {
-
-  &:hover {
-    border-color: $primary;
-  }
-}
-
-.popover {
-  &-title {
-    border-bottom: none;
+.modal,
+.toast,
+.offcanvas {
+  .btn-close {
+    background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$black}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>"));
   }
 }
